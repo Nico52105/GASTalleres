@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Chevrolet &amp; Mazda | Tienda de Repuestos Online</title>
-    <meta name="description" content="Compra repuestos originales y alternativos para Chevrolet y Mazda en Bogotá. Envío a domicilio, pago seguro, amplio catálogo de piezas automotrices.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Assets/css/landing.css">
+    <link rel="stylesheet" href="../AssetsLocal/css/landing.css">
+    <?!= HtmlService.createHtmlOutputFromFile('Assets/css/landing').getContent(); ?>
 </head>
+
 <body>
 
     <!-- TOPBAR -->
     <div class="topbar">
-        <span>📦 Envío gratis en compras mayores a $150.000</span>
+        <span>📦 Envío gratis en compras mayores a $200.000</span>
         <span class="topbar-sep">|</span>
         <span>📞 Bogotá: (601) 123-4567</span>
         <span class="topbar-sep">|</span>
@@ -33,7 +29,8 @@
 
             <!-- Buscador -->
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Buscar repuesto, referencia o modelo…" autocomplete="off">
+                <input type="text" id="searchInput" placeholder="Buscar repuesto, referencia o modelo…"
+                    autocomplete="off">
                 <button class="search-btn" onclick="buscar()">&#128269;</button>
             </div>
 
@@ -82,7 +79,8 @@
                     <span class="badge mazda">Mazda</span>
                 </div>
                 <h1>Tu tienda de repuestos<br><span class="highlight-chev">online</span> en Bogotá</h1>
-                <p>Más de <strong>500 referencias</strong> disponibles. Repuestos originales y alternativos para Chevrolet y Mazda. Compra fácil, envío rápido y asesoría técnica especializada.</p>
+                <p>Más de <strong>500 referencias</strong> disponibles. Repuestos originales y alternativos para
+                    Chevrolet y Mazda. Compra fácil, envío rápido y asesoría técnica especializada.</p>
                 <div class="hero-cta-row">
                     <a class="btn primary large" href="#tienda">Ver catálogo completo</a>
                     <a class="btn ghost large" href="#categorias">Explorar categorías</a>
@@ -155,35 +153,52 @@
                 <aside class="sidebar reveal">
                     <div class="filter-group">
                         <h4>Marca de vehículo</h4>
-                        <label class="filter-check"><input type="checkbox" name="marca" value="chevrolet" checked onchange="aplicarFiltros()"> Chevrolet</label>
-                        <label class="filter-check"><input type="checkbox" name="marca" value="mazda" checked onchange="aplicarFiltros()"> Mazda</label>
+                        <label class="filter-check"><input type="checkbox" name="marca" value="chevrolet" checked
+                                onchange="aplicarFiltros()"> Chevrolet</label>
+                        <label class="filter-check"><input type="checkbox" name="marca" value="mazda" checked
+                                onchange="aplicarFiltros()"> Mazda</label>
                     </div>
                     <div class="filter-group">
                         <h4>Tipo de pieza</h4>
-                        <label class="filter-check"><input type="checkbox" name="tipo" value="original" checked onchange="aplicarFiltros()"> Original</label>
-                        <label class="filter-check"><input type="checkbox" name="tipo" value="alternativo" checked onchange="aplicarFiltros()"> Alternativo</label>
+                        <label class="filter-check"><input type="checkbox" name="tipo" value="original" checked
+                                onchange="aplicarFiltros()"> Original</label>
+                        <label class="filter-check"><input type="checkbox" name="tipo" value="alternativo" checked
+                                onchange="aplicarFiltros()"> Alternativo</label>
                     </div>
                     <div class="filter-group">
                         <h4>Modelos Chevrolet</h4>
-                        <label class="filter-check"><input type="checkbox" name="modelo" value="aveo" checked onchange="aplicarFiltros()"> Aveo</label>
-                        <label class="filter-check"><input type="checkbox" name="modelo" value="spark" checked onchange="aplicarFiltros()"> Spark</label>
-                        <label class="filter-check"><input type="checkbox" name="modelo" value="sail" checked onchange="aplicarFiltros()"> Sail</label>
-                        <label class="filter-check"><input type="checkbox" name="modelo" value="cruze" checked onchange="aplicarFiltros()"> Cruze</label>
-                        <label class="filter-check"><input type="checkbox" name="modelo" value="tracker" checked onchange="aplicarFiltros()"> Tracker</label>
+                        <label class="filter-check"><input type="checkbox" name="modelo" value="aveo" checked
+                                onchange="aplicarFiltros()"> Aveo</label>
+                        <label class="filter-check"><input type="checkbox" name="modelo" value="spark" checked
+                                onchange="aplicarFiltros()"> Spark</label>
+                        <label class="filter-check"><input type="checkbox" name="modelo" value="sail" checked
+                                onchange="aplicarFiltros()"> Sail</label>
+                        <label class="filter-check"><input type="checkbox" name="modelo" value="cruze" checked
+                                onchange="aplicarFiltros()"> Cruze</label>
+                        <label class="filter-check"><input type="checkbox" name="modelo" value="tracker" checked
+                                onchange="aplicarFiltros()"> Tracker</label>
                     </div>
                     <div class="filter-group">
                         <h4>Modelos Mazda</h4>
-                        <label class="filter-check"><input type="checkbox" name="modelo" value="mazda3" checked onchange="aplicarFiltros()"> Mazda 3</label>
-                        <label class="filter-check"><input type="checkbox" name="modelo" value="cx5" checked onchange="aplicarFiltros()"> CX-5</label>
-                        <label class="filter-check"><input type="checkbox" name="modelo" value="cx30" checked onchange="aplicarFiltros()"> CX-30</label>
-                        <label class="filter-check"><input type="checkbox" name="modelo" value="bt50" checked onchange="aplicarFiltros()"> BT-50</label>
+                        <label class="filter-check"><input type="checkbox" name="modelo" value="mazda3" checked
+                                onchange="aplicarFiltros()"> Mazda 3</label>
+                        <label class="filter-check"><input type="checkbox" name="modelo" value="cx5" checked
+                                onchange="aplicarFiltros()"> CX-5</label>
+                        <label class="filter-check"><input type="checkbox" name="modelo" value="cx30" checked
+                                onchange="aplicarFiltros()"> CX-30</label>
+                        <label class="filter-check"><input type="checkbox" name="modelo" value="bt50" checked
+                                onchange="aplicarFiltros()"> BT-50</label>
                     </div>
                     <div class="filter-group">
                         <h4>Precio</h4>
-                        <label class="filter-check"><input type="radio" name="precio" value="todos" checked onchange="aplicarFiltros()"> Todos</label>
-                        <label class="filter-check"><input type="radio" name="precio" value="bajo" onchange="aplicarFiltros()"> Menos de $50.000</label>
-                        <label class="filter-check"><input type="radio" name="precio" value="medio" onchange="aplicarFiltros()"> $50.000 – $150.000</label>
-                        <label class="filter-check"><input type="radio" name="precio" value="alto" onchange="aplicarFiltros()"> Más de $150.000</label>
+                        <label class="filter-check"><input type="radio" name="precio" value="todos" checked
+                                onchange="aplicarFiltros()"> Todos</label>
+                        <label class="filter-check"><input type="radio" name="precio" value="bajo"
+                                onchange="aplicarFiltros()"> Menos de $50.000</label>
+                        <label class="filter-check"><input type="radio" name="precio" value="medio"
+                                onchange="aplicarFiltros()"> $50.000 – $150.000</label>
+                        <label class="filter-check"><input type="radio" name="precio" value="alto"
+                                onchange="aplicarFiltros()"> Más de $150.000</label>
                     </div>
                     <button class="btn ghost full-w" onclick="resetFiltros()">Limpiar filtros</button>
                 </aside>
@@ -243,8 +258,11 @@
                 <div class="about-text">
                     <span class="kicker">¿Quiénes somos?</span>
                     <h2>Casa Chevrolet &amp; Mazda Repuestos</h2>
-                    <p>Somos especialistas en repuestos automotrices para vehículos Chevrolet y Mazda con más de 15 años de experiencia en Bogotá. Atendemos tanto a propietarios particulares como a talleres mecánicos.</p>
-                    <p>Nuestro catálogo incluye piezas originales de fábrica y alternativas de alta calidad, con validación de compatibilidad por número de parte, modelo y año.</p>
+                    <p>Somos especialistas en repuestos automotrices para vehículos Chevrolet y Mazda con más de 15 años
+                        de experiencia en Bogotá. Atendemos tanto a propietarios particulares como a talleres mecánicos.
+                    </p>
+                    <p>Nuestro catálogo incluye piezas originales de fábrica y alternativas de alta calidad, con
+                        validación de compatibilidad por número de parte, modelo y año.</p>
                     <div class="about-stats">
                         <div class="astat"><strong>+500</strong><span>Referencias</span></div>
                         <div class="astat"><strong>15+</strong><span>Años de exp.</span></div>
@@ -255,19 +273,27 @@
                 <div class="about-features">
                     <div class="af-item">
                         <span>✅</span>
-                        <div><strong>Stock disponible</strong><p>Piezas de alta rotación en inventario inmediato.</p></div>
+                        <div><strong>Stock disponible</strong>
+                            <p>Piezas de alta rotación en inventario inmediato.</p>
+                        </div>
                     </div>
                     <div class="af-item">
                         <span>✅</span>
-                        <div><strong>Compatibilidad verificada</strong><p>Validamos la referencia antes de despachar.</p></div>
+                        <div><strong>Compatibilidad verificada</strong>
+                            <p>Validamos la referencia antes de despachar.</p>
+                        </div>
                     </div>
                     <div class="af-item">
                         <span>✅</span>
-                        <div><strong>Atención a talleres</strong><p>Precios especiales para compras al por mayor.</p></div>
+                        <div><strong>Atención a talleres</strong>
+                            <p>Precios especiales para compras al por mayor.</p>
+                        </div>
                     </div>
                     <div class="af-item">
                         <span>✅</span>
-                        <div><strong>Facturación electrónica</strong><p>Factura válida para garantías y contabilidad.</p></div>
+                        <div><strong>Facturación electrónica</strong>
+                            <p>Factura válida para garantías y contabilidad.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -280,8 +306,12 @@
                     <h2>¿No encuentras tu repuesto?</h2>
                     <p>Escríbenos con la referencia, modelo y año de tu vehículo y te cotizamos en minutos.</p>
                     <div class="btn-row">
-                        <a class="btn primary large" href="https://wa.me/573001234567?text=Hola%2C%20necesito%20cotizar%20un%20repuesto" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
-                        <a class="btn ghost-dark large" href="https://www.facebook.com/casachevroletymazda/?locale=es_LA" target="_blank" rel="noopener noreferrer">📘 Facebook</a>
+                        <a class="btn primary large"
+                            href="https://wa.me/573001234567?text=Hola%2C%20necesito%20cotizar%20un%20repuesto"
+                            target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+                        <a class="btn ghost-dark large"
+                            href="https://www.facebook.com/casachevroletymazda/?locale=es_LA" target="_blank"
+                            rel="noopener noreferrer">📘 Facebook</a>
                         <a class="btn ghost-dark large" href="tel:+576011234567">📞 Llamar</a>
                     </div>
                 </div>
@@ -311,7 +341,8 @@
                 <h5>Contacto</h5>
                 <a href="tel:+576011234567">(601) 123-4567</a>
                 <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                <a href="https://www.facebook.com/casachevroletymazda/?locale=es_LA" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="https://www.facebook.com/casachevroletymazda/?locale=es_LA" target="_blank"
+                    rel="noopener noreferrer">Facebook</a>
             </div>
             <div class="footer-links">
                 <h5>Información</h5>
@@ -321,7 +352,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Casa Chevrolet &amp; Mazda Repuestos &middot; Bogotá, Colombia &middot; Todos los derechos reservados</p>
+            <p>&copy; 2026 Casa Chevrolet &amp; Mazda Repuestos &middot; Bogotá, Colombia &middot; Todos los derechos
+                reservados</p>
         </div>
     </footer>
 
@@ -333,8 +365,8 @@
     </div>
 
     <!-- TOAST NOTIFICACIÓN -->
-    <div class="toast" id="toast"></div>
-
-    <script src="../Assets/js/landing.js"></script>
+    <div class="toast" id="toast"></div>|
 </body>
+    <script src="../AssetsLocal/js/landing.js"></script>
+    <?!= HtmlService.createHtmlOutputFromFile('Assets/js/landing').getContent(); ?>
 </html>

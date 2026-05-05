@@ -1,3 +1,3 @@
 function doGet(){
-    return HtmlService.createHtmlOutputFromFile('Paginas/index').setTitle('Ingenieria Estrategica');
+    return HtmlService.createTemplateFromFile('Paginas/index').evaluate().setTitle('Casa Chevrolet & Mazda | Tienda de Repuestos Online');
 }
