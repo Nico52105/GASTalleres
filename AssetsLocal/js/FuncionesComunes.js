@@ -1,0 +1,4 @@
+function ObtenerPagina(pagina) {
+    // Lógica local para obtener la página
+    window.location.href = window.location.origin + "/Paginas/" + pagina + ".html";
+}

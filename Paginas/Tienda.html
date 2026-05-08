@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="../AssetsLocal/css/landing.css">
+    <?!= HtmlService.createHtmlOutputFromFile('Assets/css/landing').getContent(); ?>
+</head>
+
+<body>
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <span>📦 Envío gratis en compras mayores a $200.000</span>
+        <span class="topbar-sep">|</span>
+        <span>📞 Bogotá: (601) 123-4567</span>
+        <span class="topbar-sep">|</span>
+        <span>⏱ Lun – Sáb 8am–6pm</span>
+    </div>
+
+    <!-- HEADER / NAV -->
+    <header class="site-header">
+        <nav class="nav">
+            <div class="brand">
+                <span class="brand-chev">Chevrolet</span>
+                <span class="brand-sep">&amp;</span>
+                <span class="brand-mazda">Mazda</span>
+                <span class="brand-sub">Repuestos</span>
+            </div>
+
+            <!-- Buscador -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar repuesto, referencia o modelo…"
+                    autocomplete="off">
+                <button class="search-btn" onclick="buscar()">&#128269;</button>
+            </div>
+
+            <div class="nav-actions">
+                <ul class="nav-links">
+                    <li><button onclick="ObtenerPagina('Index')">Home</button></li>
+                    <li><a href="#tienda">Tienda</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <button class="cart-btn" id="cartBtn" onclick="toggleCarrito()">
+                    🛒 <span class="cart-label">Carrito</span>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CATEGORÍAS -->
+    <section class="section" id="categorias">
+        <div class="section-header reveal">
+            <h2>Categorías de repuestos</h2>
+            <p>Selecciona una categoría para filtrar el catálogo</p>
+        </div>
+        <div class="cat-grid reveal">
+            <button class="cat-card active" data-cat="todos">
+                <span class="cat-icon">🔩</span>
+                <span>Todos</span>
+            </button>
+            <button class="cat-card" data-cat="frenos">
+                <span class="cat-icon">🛑</span>
+                <span>Frenos</span>
+            </button>
+            <button class="cat-card" data-cat="filtros">
+                <span class="cat-icon">🌬️</span>
+                <span>Filtros</span>
+            </button>
+            <button class="cat-card" data-cat="suspension">
+                <span class="cat-icon">🔧</span>
+                <span>Suspensión</span>
+            </button>
+            <button class="cat-card" data-cat="motor">
+                <span class="cat-icon">⚙️</span>
+                <span>Motor</span>
+            </button>
+            <button class="cat-card" data-cat="electrico">
+                <span class="cat-icon">⚡</span>
+                <span>Eléctrico</span>
+            </button>
+            <button class="cat-card" data-cat="accesorios">
+                <span class="cat-icon">✨</span>
+                <span>Accesorios</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- TIENDA / CATÁLOGO -->
+    <section class="section" id="tienda">
+        <div class="shop-layout">
+
+            <!-- SIDEBAR FILTROS -->
+            <aside class="sidebar reveal">
+                <div class="filter-group">
+                    <h4>Marca de vehículo</h4>
+                    <label class="filter-check"><input type="checkbox" name="marca" value="chevrolet" checked
+                            onchange="aplicarFiltros()"> Chevrolet</label>
+                    <label class="filter-check"><input type="checkbox" name="marca" value="mazda" checked
+                            onchange="aplicarFiltros()"> Mazda</label>
+                </div>
+                <div class="filter-group">
+                    <h4>Tipo de pieza</h4>
+                    <label class="filter-check"><input type="checkbox" name="tipo" value="original" checked
+                            onchange="aplicarFiltros()"> Original</label>
+                    <label class="filter-check"><input type="checkbox" name="tipo" value="alternativo" checked
+                            onchange="aplicarFiltros()"> Alternativo</label>
+                </div>
+                <div class="filter-group">
+                    <h4>Modelos Chevrolet</h4>
+                    <label class="filter-check"><input type="checkbox" name="modelo" value="aveo" checked
+                            onchange="aplicarFiltros()"> Aveo</label>
+                    <label class="filter-check"><input type="checkbox" name="modelo" value="spark" checked
+                            onchange="aplicarFiltros()"> Spark</label>
+                    <label class="filter-check"><input type="checkbox" name="modelo" value="sail" checked
+                            onchange="aplicarFiltros()"> Sail</label>
+                    <label class="filter-check"><input type="checkbox" name="modelo" value="cruze" checked
+                            onchange="aplicarFiltros()"> Cruze</label>
+                    <label class="filter-check"><input type="checkbox" name="modelo" value="tracker" checked
+                            onchange="aplicarFiltros()"> Tracker</label>
+                </div>
+                <div class="filter-group">
+                    <h4>Modelos Mazda</h4>
+                    <label class="filter-check"><input type="checkbox" name="modelo" value="mazda3" checked
+                            onchange="aplicarFiltros()"> Mazda 3</label>
+                    <label class="filter-check"><input type="checkbox" name="modelo" value="cx5" checked
+                            onchange="aplicarFiltros()"> CX-5</label>
+                    <label class="filter-check"><input type="checkbox" name="modelo" value="cx30" checked
+                            onchange="aplicarFiltros()"> CX-30</label>
+                    <label class="filter-check"><input type="checkbox" name="modelo" value="bt50" checked
+                            onchange="aplicarFiltros()"> BT-50</label>
+                </div>
+                <div class="filter-group">
+                    <h4>Precio</h4>
+                    <label class="filter-check"><input type="radio" name="precio" value="todos" checked
+                            onchange="aplicarFiltros()"> Todos</label>
+                    <label class="filter-check"><input type="radio" name="precio" value="bajo"
+                            onchange="aplicarFiltros()"> Menos de $50.000</label>
+                    <label class="filter-check"><input type="radio" name="precio" value="medio"
+                            onchange="aplicarFiltros()"> $50.000 – $150.000</label>
+                    <label class="filter-check"><input type="radio" name="precio" value="alto"
+                            onchange="aplicarFiltros()"> Más de $150.000</label>
+                </div>
+                <button class="btn ghost full-w" onclick="resetFiltros()">Limpiar filtros</button>
+            </aside>
+
+            <!-- PRODUCTOS -->
+            <div class="products-area">
+                <div class="products-bar reveal">
+                    <span id="productsCount">Mostrando todos los productos</span>
+                    <select id="sortSelect" title="Ordenar productos" onchange="ordenarProductos()">
+                        <option value="default">Ordenar por</option>
+                        <option value="precio-asc">Precio: menor a mayor</option>
+                        <option value="precio-desc">Precio: mayor a menor</option>
+                        <option value="nombre">Nombre A–Z</option>
+                    </select>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Generados por JS -->
+                </div>
+                <div class="no-results" id="noResults" hidden>
+                    <span>😕</span>
+                    <p>No encontramos productos con esos filtros.</p>
+                    <button class="btn ghost" onclick="resetFiltros()">Ver todos</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER CONFIANZA -->
+    <section class="trust-banner reveal">
+        <div class="trust-banner-inner">
+            <div class="trust-block">
+                <span class="trust-ico">🚚</span>
+                <strong>Envío a domicilio</strong>
+                <p>Bogotá y municipios aledaños. Embalaje seguro garantizado.</p>
+            </div>
+            <div class="trust-block">
+                <span class="trust-ico">🔒</span>
+                <strong>Compra segura</strong>
+                <p>Pedido confirmado por WhatsApp con factura electrónica.</p>
+            </div>
+            <div class="trust-block">
+                <span class="trust-ico">🔧</span>
+                <strong>Asesoría técnica</strong>
+                <p>Te ayudamos a identificar la pieza correcta por modelo y año.</p>
+            </div>
+            <div class="trust-block">
+                <span class="trust-ico">🔄</span>
+                <strong>Garantía</strong>
+                <p>Garantía de fábrica en piezas originales. Cambios sin problema.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA CONTACT -->
+    <section class="section" id="contacto">
+        <div class="cta reveal">
+            <div class="cta-inner">
+                <h2>¿No encuentras tu repuesto?</h2>
+                <p>Escríbenos con la referencia, modelo y año de tu vehículo y te cotizamos en minutos.</p>
+                <div class="btn-row">
+                    <a class="btn primary large"
+                        href="https://wa.me/573001234567?text=Hola%2C%20necesito%20cotizar%20un%20repuesto"
+                        target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+                    <a class="btn ghost-dark large" href="https://www.facebook.com/casachevroletymazda/?locale=es_LA"
+                        target="_blank" rel="noopener noreferrer">📘 Facebook</a>
+                    <a class="btn ghost-dark large" href="tel:+576011234567">📞 Llamar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="brand">
+                    <span class="brand-chev">Chevrolet</span>
+                    <span class="brand-sep">&amp;</span>
+                    <span class="brand-mazda">Mazda</span>
+                    <span class="brand-sub">Repuestos</span>
+                </div>
+                <p>Tienda de repuestos automotrices en Bogotá, Colombia.</p>
+            </div>
+            <div class="footer-links">
+                <h5>Tienda</h5>
+                <a href="#tienda">Catálogo</a>
+                <a href="#categorias">Categorías</a>
+                <a href="#nosotros">Nosotros</a>
+            </div>
+            <div class="footer-links">
+                <h5>Contacto</h5>
+                <a href="tel:+576011234567">(601) 123-4567</a>
+                <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="https://www.facebook.com/casachevroletymazda/?locale=es_LA" target="_blank"
+                    rel="noopener noreferrer">Facebook</a>
+            </div>
+            <div class="footer-links">
+                <h5>Información</h5>
+                <a href="#">Política de envíos</a>
+                <a href="#">Garantías</a>
+                <a href="#">Devoluciones</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Casa Chevrolet &amp; Mazda Repuestos &middot; Bogotá, Colombia &middot; Todos los derechos
+                reservados</p>
+        </div>
+    </footer>
+
+    <!-- MODAL DETALLE PRODUCTO -->
+    <div class="modal-overlay" id="modalOverlay" onclick="cerrarModal()"></div>
+    <div class="modal" id="productModal">
+        <button class="modal-close" onclick="cerrarModal()">&#10005;</button>
+        <div class="modal-body" id="modalBody"></div>
+    </div>
+
+    <!-- TOAST NOTIFICACIÓN -->
+    <div class="toast" id="toast"></div>|
+</body>
+<script src="../AssetsLocal/js/FuncionesComunes.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Assets/js/FuncionesComunes').getContent(); ?>
+<script src="../AssetsLocal/js/landing.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Assets/js/landing').getContent(); ?>
+
+</html>

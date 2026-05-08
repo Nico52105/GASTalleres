@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+    <title>Casa Chevrolet & Mazda Repuestos | Tienda de repuestos online en Bogotá</title>
     <link rel="stylesheet" href="../AssetsLocal/css/landing.css">
     <?!= HtmlService.createHtmlOutputFromFile('Assets/css/landing').getContent(); ?>
 </head>
@@ -36,10 +37,11 @@
 
             <div class="nav-actions">
                 <ul class="nav-links">
-                    <li><a href="#tienda">Tienda</a></li>
-                    <li><a href="#categorias">Categorías</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><button onclick="ObtenerPagina('Index')">Home</button></li>
+                    <li><button onclick="ObtenerPagina('Tienda')">Tienda</button></li>
+                    <li><button onclick="ObtenerPagina('Categorias')">Categorías</button></li>
+                    <li><button onclick="ObtenerPagina('Nosotros')">Nosotros</button></li>
+                    <li><button onclick="ObtenerPagina('Contacto')">Contacto</button></li>
                 </ul>
                 <button class="cart-btn" id="cartBtn" onclick="toggleCarrito()">
                     🛒 <span class="cart-label">Carrito</span>
@@ -367,6 +369,8 @@
     <!-- TOAST NOTIFICACIÓN -->
     <div class="toast" id="toast"></div>|
 </body>
+    <script src="../AssetsLocal/js/FuncionesComunes.js"></script>
+    <?!= HtmlService.createHtmlOutputFromFile('Assets/js/FuncionesComunes').getContent(); ?>
     <script src="../AssetsLocal/js/landing.js"></script>
     <?!= HtmlService.createHtmlOutputFromFile('Assets/js/landing').getContent(); ?>
 </html>

@@ -1,0 +1,9 @@
+<script type="text/javascript">
+    function ObtenerPagina(pagina) {
+        google.script.run
+            .withSuccessHandler(function (url) {
+                window.top.location.href = url + '?pag=' + pagina;
+            })
+            .getWebAppUrl();
+    }
+</script>
