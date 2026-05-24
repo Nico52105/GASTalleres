@@ -16,8 +16,14 @@
         <li><button onclick="ObtenerPagina('Nosotros')">Nosotros</button></li>
         <li><button onclick="ObtenerPagina('Contacto')">Contacto</button></li>
     </ul>
+    <my-webcomponent-attributes-callback 
+        nombre-nodo="Nodo 10" 
+        mensajes-validos="Mensaje 1"
+        respuestas="Respuesta 1">
+    </my-webcomponent-attributes-callback>
 </body>
 <script src="../AssetsLocal/js/FuncionesComunes.js"></script>
 <?!= HtmlService.createHtmlOutputFromFile('Assets/js/FuncionesComunes').getContent(); ?>
-
+<script src="../ComponentesLocal/Menu.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Componentes/Menu').getContent(); ?>
 </html>
