@@ -36,13 +36,14 @@
             </div>
 
             <div class="nav-actions">
-                <ul class="nav-links">
-                    <li><button onclick="ObtenerPagina('Index')">Home</button></li>
-                    <li><button onclick="ObtenerPagina('Tienda')">Tienda</button></li>
-                    <li><button onclick="ObtenerPagina('Categorias')">Categorías</button></li>
-                    <li><button onclick="ObtenerPagina('Nosotros')">Nosotros</button></li>
-                    <li><button onclick="ObtenerPagina('Contacto')">Contacto</button></li>
-                </ul>
+                <menu-component paginas='[
+                    {"titulo":"Inicio","pagina":"Index"},
+                    {"titulo":"Home","pagina":"Home"},
+                    {"titulo":"Tienda","pagina":"Tienda"},
+                    {"titulo":"Categorías","pagina":"Categorias"},
+                    {"titulo":"Nosotros","pagina":"Nosotros"},
+                    {"titulo":"Contacto","pagina":"Contacto"}]'>
+                </menu-component>
                 <button class="cart-btn" id="cartBtn" onclick="toggleCarrito()">
                     🛒 <span class="cart-label">Carrito</span>
                     <span class="cart-badge" id="cartBadge">0</span>
@@ -369,8 +370,11 @@
     <!-- TOAST NOTIFICACIÓN -->
     <div class="toast" id="toast"></div>|
 </body>
-    <script src="../AssetsLocal/js/FuncionesComunes.js"></script>
-    <?!= HtmlService.createHtmlOutputFromFile('Assets/js/FuncionesComunes').getContent(); ?>
-    <script src="../AssetsLocal/js/landing.js"></script>
-    <?!= HtmlService.createHtmlOutputFromFile('Assets/js/landing').getContent(); ?>
+<script src="../AssetsLocal/js/FuncionesComunes.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Assets/js/FuncionesComunes').getContent(); ?>
+<script src="../AssetsLocal/js/landing.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Assets/js/landing').getContent(); ?>
+<script src="../ComponentesLocal/Menu.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Componentes/Menu').getContent(); ?>
+
 </html>

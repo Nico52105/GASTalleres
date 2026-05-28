@@ -8,22 +8,20 @@
 </head>
 
 <body>
-    <ul class="nav-links">
-        <li><button onclick="ObtenerPagina('Index')">Index</button></li>
-        <li><button onclick="ObtenerPagina('Home')">Home</button></li>
-        <li><button onclick="ObtenerPagina('Tienda')">Tienda</button></li>
-        <li><button onclick="ObtenerPagina('Categorias')">Categorías</button></li>
-        <li><button onclick="ObtenerPagina('Nosotros')">Nosotros</button></li>
-        <li><button onclick="ObtenerPagina('Contacto')">Contacto</button></li>
-    </ul>
-    <my-webcomponent-attributes-callback 
-        nombre-nodo="Nodo 10" 
-        mensajes-validos="Mensaje 1"
-        respuestas="Respuesta 1">
+    <menu-component paginas='[
+    {"titulo":"Inicio","pagina":"Index"},
+    {"titulo":"Home","pagina":"Home"},
+    {"titulo":"Tienda","pagina":"Tienda"},
+    {"titulo":"Categorías","pagina":"Categorias"},
+    {"titulo":"Nosotros","pagina":"Nosotros"},
+    {"titulo":"Contacto","pagina":"Contacto"}]'>
+    </menu-component>
+    <my-webcomponent-attributes-callback nombre-nodo="Nodo 10" mensajes-validos="Mensaje 1" respuestas="Respuesta 1">
     </my-webcomponent-attributes-callback>
 </body>
 <script src="../AssetsLocal/js/FuncionesComunes.js"></script>
 <?!= HtmlService.createHtmlOutputFromFile('Assets/js/FuncionesComunes').getContent(); ?>
-<script src="../ComponentesLocal/MyWebcomponentAttributesCallBack.js"></script>
-<?!= HtmlService.createHtmlOutputFromFile('Componentes/MyWebcomponentAttributesCallBack').getContent(); ?>
+<script src="../ComponentesLocal/Menu.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Componentes/Menu').getContent(); ?>
+
 </html>
