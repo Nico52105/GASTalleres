@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorías</title>
+    <title>Home</title>
 </head>
 
 <body>
+    <div style="width: 230px;">
+        <buscador-component></buscador-component>
+    </div>
+
     <menu-component paginas='[
     {"titulo":"Inicio","pagina":"Index"},
     {"titulo":"Home","pagina":"Home"},
@@ -21,6 +25,8 @@
 </body>
 <script src="../AssetsLocal/js/FuncionesComunes.js"></script>
 <?!= HtmlService.createHtmlOutputFromFile('Assets/js/FuncionesComunes').getContent(); ?>
+<script src="../ComponentesLocal/Buscador.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Componentes/Buscador').getContent(); ?>
 <script src="../ComponentesLocal/Menu.js"></script>
 <?!= HtmlService.createHtmlOutputFromFile('Componentes/Menu').getContent(); ?>
 

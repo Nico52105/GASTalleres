@@ -1,6 +1,5 @@
-
 // Nota: los atributos deben estar en minúsculas para que sean detectados por el navegador.
-let Etiqueta = 'menu-component';
+let EtiquetaMenuComponent = 'menu-component';
 class MenuComponent extends HTMLElement {
     Paginas;
 
@@ -30,7 +29,7 @@ class MenuComponent extends HTMLElement {
         const template = document.createElement('template');
         // Los estilos deben estar dentro del template para afectar al Shadow DOM
         template.innerHTML = `
-                <style id="estilos">                    
+                <style class="estilos-menu">                    
                 </style>
                 <div class="menu">                    
                 </div>
@@ -40,7 +39,7 @@ class MenuComponent extends HTMLElement {
 
     render() {
         this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));
-        this.shadowRoot.querySelector('#estilos').textContent = this.generarEstilos();
+        this.shadowRoot.querySelector('.estilos-menu').textContent = this.generarEstilos();
         this.shadowRoot.querySelector('.menu').innerHTML = this.generarMenu();
     }
 
@@ -50,7 +49,7 @@ class MenuComponent extends HTMLElement {
 
     generarMenu() {
         let paginasArray = [];
-        try { paginasArray = this.Paginas ? JSON.parse(this.Paginas) : []; } catch (e) {}
+        try { paginasArray = this.Paginas ? JSON.parse(this.Paginas) : []; } catch (e) { }
         return `<ul class="nav-links">
                     ${paginasArray.map(({ titulo, pagina }) => `<li><button onclick="ObtenerPagina('${pagina}')">${titulo}</button></li>`).join('')}
                 </ul>`;
@@ -91,4 +90,4 @@ class MenuComponent extends HTMLElement {
         `;
     }
 }
-customElements.define(Etiqueta, MenuComponent);
+customElements.define(EtiquetaMenuComponent, MenuComponent);

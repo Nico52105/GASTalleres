@@ -28,12 +28,8 @@
                 <span class="brand-sub">Repuestos</span>
             </div>
 
-            <!-- Buscador -->
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Buscar repuesto, referencia o modelo…"
-                    autocomplete="off">
-                <button class="search-btn" onclick="buscar()">&#128269;</button>
-            </div>
+            
+            <buscador-component></buscador-component>
 
             <div class="nav-actions">
                 <menu-component paginas='[
@@ -374,6 +370,8 @@
 <?!= HtmlService.createHtmlOutputFromFile('Assets/js/FuncionesComunes').getContent(); ?>
 <script src="../AssetsLocal/js/landing.js"></script>
 <?!= HtmlService.createHtmlOutputFromFile('Assets/js/landing').getContent(); ?>
+<script src="../ComponentesLocal/Buscador.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Componentes/Buscador').getContent(); ?>
 <script src="../ComponentesLocal/Menu.js"></script>
 <?!= HtmlService.createHtmlOutputFromFile('Componentes/Menu').getContent(); ?>
 
