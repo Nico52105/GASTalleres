@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../AssetsLocal/css/bootstrap.min.css">
+    <?!= HtmlService.createHtmlOutputFromFile('Assets/css/bootstrap.min').getContent(); ?>
+</head>
+
+<body>
+    <div style="width: 230px;">
+        <buscador-component></buscador-component>
+    </div>    
+    <menu-component>
+        {
+        "titulo":"GAS Talleres",
+        "opciones":[
+        {"titulo":"Inicio","pagina":"Index"},
+        {"titulo":"Home","pagina":"Home"},
+        {"titulo":"Tienda","pagina":"Tienda"},
+        {"titulo":"Categorías","pagina":"Categorias"},
+        {"titulo":"Nosotros","pagina":"Nosotros"},
+        {"titulo":"Contacto","pagina":"Contacto"},
+        {"titulo":"Bootstrap","pagina":"bootstrap"}
+        ]
+        }
+    </menu-component>
+    <button type="button" class="btn btn-primary">Primary</button>
+    <br/>
+    <my-webcomponent-attributes-callback nombre-nodo="Nodo 10" mensajes-validos="Mensaje 1" respuestas="Respuesta 1">
+    </my-webcomponent-attributes-callback>
+</body>
+<script src="../AssetsLocal/js/bootstrap.bundle.min.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Assets/js/bootstrap.bundle.min').getContent(); ?>
+<script src="../AssetsLocal/js/FuncionesComunes.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Assets/js/FuncionesComunes').getContent(); ?>
+<script src="../ComponentesLocal/Menu.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Componentes/Menu').getContent(); ?>
+
+</html>
