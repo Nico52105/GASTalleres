@@ -2,33 +2,75 @@
 <html lang="es">
 
 <head>
+    <title>Home</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+
+    <script>
+        (function () {
+            const v = Date.now();
+            const srcs = [
+                `../AssetsLocal/css/bootstrap.min.css?v=${v}`,
+            ];
+            function loadNext(index) {
+                if (index >= srcs.length) return;
+                const s = document.createElement('link');
+                s.rel = 'stylesheet';
+                s.href = srcs[index];
+                s.onload = () => loadNext(index + 1);
+                document.head.appendChild(s);
+            }
+            loadNext(0);
+        })();
+    </script>
+    <?!= HtmlService.createHtmlOutputFromFile('Assets/css/bootstrap.min').getContent(); ?>
 </head>
 
 <body>
-    <div style="width: 230px;">
-        <buscador-component></buscador-component>
+    <div class="d-flex justify-content-center p-1 bg-black text-white fs-6">
+        <span>📦 Envío gratis en compras mayores a $200.000</span>
+        <span class="mx-2">|</span>
+        <span>📞 Bogotá: (601) 123-4567</span>
+        <span class="mx-2">|</span>
+        <span>⏱ Lun – Sáb 8am–6pm</span>
     </div>
-
-    <menu-component paginas='[
-    {"titulo":"Inicio","pagina":"Index"},
-    {"titulo":"Home","pagina":"Home"},
-    {"titulo":"Tienda","pagina":"Tienda"},
-    {"titulo":"Categorías","pagina":"Categorias"},
-    {"titulo":"Nosotros","pagina":"Nosotros"},
-    {"titulo":"Contacto","pagina":"Contacto"},
-    {"titulo":"Bootstrap","pagina":"bootstrap"}]'>
-    </menu-component>
-    <my-webcomponent-attributes-callback nombre-nodo="Nodo 10" mensajes-validos="Mensaje 1" respuestas="Respuesta 1">
-    </my-webcomponent-attributes-callback>
+    <div>
+        <menu-component>
+            {
+            "titulo":"<h5>GAS Talleres 5</h5>",
+            "opciones":[
+            {"titulo":"Inicio","pagina":"Index"},
+            {"titulo":"Home","pagina":"Home"},
+            {"titulo":"Tienda","pagina":"Tienda"},
+            {"titulo":"Categorías","pagina":"Categorias"},
+            {"titulo":"Nosotros","pagina":"Nosotros"},
+            {"titulo":"Contacto","pagina":"Contacto"},
+            {"titulo":"Bootstrap","pagina":"Bootstrap"}
+            ]
+            }
+        </menu-component>
+    </div>
 </body>
-<script src="../AssetsLocal/js/FuncionesComunes.js"></script>
+<script>
+    (function () {
+        const v = Date.now();
+        const srcs = [
+            `../AssetsLocal/js/bootstrap.bundle.min.js?v=${v}`,
+            `../AssetsLocal/js/FuncionesComunes.js?v=${v}`,
+            `../ComponentesLocal/Menu.js?v=${v}`
+        ];
+        function loadNext(index) {
+            if (index >= srcs.length) return;
+            const s = document.createElement('script');
+            s.src = srcs[index];
+            s.onload = () => loadNext(index + 1);
+            document.body.appendChild(s);
+        }
+        loadNext(0);
+    })();
+</script>
+<?!= HtmlService.createHtmlOutputFromFile('Assets/js/bootstrap.bundle.min').getContent(); ?>
 <?!= HtmlService.createHtmlOutputFromFile('Assets/js/FuncionesComunes').getContent(); ?>
-<script src="../ComponentesLocal/Buscador.js"></script>
-<?!= HtmlService.createHtmlOutputFromFile('Componentes/Buscador').getContent(); ?>
-<script src="../ComponentesLocal/Menu.js"></script>
 <?!= HtmlService.createHtmlOutputFromFile('Componentes/Menu').getContent(); ?>
 
 </html>

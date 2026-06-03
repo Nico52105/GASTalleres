@@ -2,34 +2,83 @@
 <html lang="es">
 
 <head>
-    <title>Home</title>
+    <title>Bootsrap</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../AssetsLocal/css/bootstrap.min.css">
     <?!= HtmlService.createHtmlOutputFromFile('Assets/css/bootstrap.min').getContent(); ?>
+    <style>
+        :root {
+            --bg: #f4f5f7;
+            --bg-soft: #eef0f3;
+            --paper: #ffffff;
+            --ink: #1a1e26;
+            --ink-soft: #4a5568;
+            --muted: #8a96a8;
+            --chev: #D4960A;
+            --chev-d: #b8820a;
+            --chev-light: #fdf3d8;
+            --chev-glow: rgba(212, 150, 10, 0.14);
+            --mazda: #C40B20;
+            --mazda-d: #a30919;
+            --mazda-light: #fde8eb;
+            --mazda-glow: rgba(196, 11, 32, 0.10);
+            --line: #e2e6ec;
+            --shadow-sm: 0 2px 8px rgba(26, 30, 38, 0.07);
+            --shadow: 0 8px 28px rgba(26, 30, 38, 0.10);
+            --shadow-lg: 0 20px 50px rgba(26, 30, 38, 0.12);
+            --radius: 14px;
+            --transition: 0.22s ease;
+        }
+        
+        .brand-chev {
+            color: var(--chev);
+        }
+
+        .brand-sep {
+            color: #c0c8d4;
+            font-weight: 400;
+        }
+
+        .brand-mazda {
+            color: var(--mazda);
+        }
+    </style>
 </head>
 
 <body>
-    <div style="width: 230px;">
-        <buscador-component></buscador-component>
-    </div>    
-    <menu-component>
-        {
-        "titulo":"GAS Talleres",
-        "opciones":[
-        {"titulo":"Inicio","pagina":"Index"},
-        {"titulo":"Home","pagina":"Home"},
-        {"titulo":"Tienda","pagina":"Tienda"},
-        {"titulo":"Categorías","pagina":"Categorias"},
-        {"titulo":"Nosotros","pagina":"Nosotros"},
-        {"titulo":"Contacto","pagina":"Contacto"},
-        {"titulo":"Bootstrap","pagina":"bootstrap"}
-        ]
-        }
-    </menu-component>
-    <button type="button" class="btn btn-primary">Primary</button>
-    <br/>
+    <div class="d-flex justify-content-center p-1 bg-black text-white fs-6">
+        <span>📦 Envío gratis en compras mayores a $200.000</span>
+        <span class="mx-2">|</span>
+        <span>📞 Bogotá: (601) 123-4567</span>
+        <span class="mx-2">|</span>
+        <span>⏱ Lun – Sáb 8am–6pm</span>
+    </div>
+    <div class="d-flex space-between align-items-center">
+        <div class="d-flex flex-column">
+            <span class="fs-4 border-bottom brand-sep"><span class="brand-chev">Chevrolet</span> & <span class="brand-mazda">Mazda</span></span>
+            <sub class="text-end mt-1">REPUESTOS</sub>
+        </div>
+        <div>
+            <menu-component>
+                {
+                "titulo":"GAS Talleres",
+                "opciones":[
+                {"titulo":"Inicio","pagina":"Index"},
+                {"titulo":"Home","pagina":"Home"},
+                {"titulo":"Tienda","pagina":"Tienda"},
+                {"titulo":"Categorías","pagina":"Categorias"},
+                {"titulo":"Nosotros","pagina":"Nosotros"},
+                {"titulo":"Contacto","pagina":"Contacto"},
+                {"titulo":"Bootstrap","pagina":"Bootstrap"}
+                ]
+                }
+            </menu-component>
+        </div>
+        <div></div>
+    </div>
+    <br />
     <my-webcomponent-attributes-callback nombre-nodo="Nodo 10" mensajes-validos="Mensaje 1" respuestas="Respuesta 1">
     </my-webcomponent-attributes-callback>
 </body>
