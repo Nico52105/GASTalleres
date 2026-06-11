@@ -8,32 +8,21 @@ class MenuComponent extends HTMLElement {
 
     getTemplate() {
         const template = document.createElement('template');
-        let datos = JSON.parse(this.textContent || '{}');
-        let titulo = datos.titulo ?
-            `<a class="navbar-brand" href="#">${datos.titulo}</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>`: '';
-        let opciones = datos.opciones && datos.opciones.length > 0 ?
-            datos.opciones.map(
+        let datos = JSON.parse(this.textContent || '[]');
+        let opciones = datos && datos.length > 0 ?
+            datos.map(
                 (opcion) => {
                     return `<li class="nav-item"><a class="nav-link" href="#" onclick="ObtenerPagina('${opcion.pagina}')">${opcion.titulo}</a></li>`;
                 }).join('') : '';
+
         template.innerHTML = `                
                 <div class="menu">
                     <nav class="navbar navbar-expand-lg">
                         <div class="container-fluid">
-                            ${titulo}
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     ${opciones}
                                 </ul>
-                                <form class="d-flex" role="search">
-                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                                    <button class="btn btn-outline-success" type="submit">Search</button>
-                                </form>
                             </div>
                         </div>
                     </nav>

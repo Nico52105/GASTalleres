@@ -8,46 +8,11 @@
 
     <link rel="stylesheet" href="../AssetsLocal/css/bootstrap.min.css">
     <?!= HtmlService.createHtmlOutputFromFile('Assets/css/bootstrap.min').getContent(); ?>
-    <style>
-        :root {
-            --bg: #f4f5f7;
-            --bg-soft: #eef0f3;
-            --paper: #ffffff;
-            --ink: #1a1e26;
-            --ink-soft: #4a5568;
-            --muted: #8a96a8;
-            --chev: #D4960A;
-            --chev-d: #b8820a;
-            --chev-light: #fdf3d8;
-            --chev-glow: rgba(212, 150, 10, 0.14);
-            --mazda: #C40B20;
-            --mazda-d: #a30919;
-            --mazda-light: #fde8eb;
-            --mazda-glow: rgba(196, 11, 32, 0.10);
-            --line: #e2e6ec;
-            --shadow-sm: 0 2px 8px rgba(26, 30, 38, 0.07);
-            --shadow: 0 8px 28px rgba(26, 30, 38, 0.10);
-            --shadow-lg: 0 20px 50px rgba(26, 30, 38, 0.12);
-            --radius: 14px;
-            --transition: 0.22s ease;
-        }
-        
-        .brand-chev {
-            color: var(--chev);
-        }
-
-        .brand-sep {
-            color: #c0c8d4;
-            font-weight: 400;
-        }
-
-        .brand-mazda {
-            color: var(--mazda);
-        }
-    </style>
+    <link rel="stylesheet" href="../AssetsLocal/css/ReglasGenerales.css">
+    <?!= HtmlService.createHtmlOutputFromFile('Assets/css/ReglasGenerales').getContent(); ?>
 </head>
 
-<body>
+<body class="bg-body-tertiary p-0 m-0">
     <div class="d-flex justify-content-center p-1 bg-black text-white fs-6">
         <span>📦 Envío gratis en compras mayores a $200.000</span>
         <span class="mx-2">|</span>
@@ -55,16 +20,15 @@
         <span class="mx-2">|</span>
         <span>⏱ Lun – Sáb 8am–6pm</span>
     </div>
-    <div class="d-flex space-between align-items-center">
+    <div class="d-flex justify-content-between align-items-center shadow-sm bg-white rounded px-3 py-2">
         <div class="d-flex flex-column">
-            <span class="fs-4 border-bottom brand-sep"><span class="brand-chev">Chevrolet</span> & <span class="brand-mazda">Mazda</span></span>
+            <span class="fs-4 border-bottom brand-sep"><span class="brand-chev">Chevrolet</span> & <span
+                    class="brand-mazda">Mazda</span></span>
             <sub class="text-end mt-1">REPUESTOS</sub>
         </div>
         <div>
             <menu-component>
-                {
-                "titulo":"GAS Talleres",
-                "opciones":[
+                [
                 {"titulo":"Inicio","pagina":"Index"},
                 {"titulo":"Home","pagina":"Home"},
                 {"titulo":"Tienda","pagina":"Tienda"},
@@ -73,14 +37,16 @@
                 {"titulo":"Contacto","pagina":"Contacto"},
                 {"titulo":"Bootstrap","pagina":"Bootstrap"}
                 ]
-                }
             </menu-component>
         </div>
-        <div></div>
+        <div>
+            <button class="btn btn-dark position-relative" id="cartBtn" onclick="toggleCarrito()">
+                🛒 <span class="cart-label">Carrito</span>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+            </button>
+        </div>
     </div>
-    <br />
-    <my-webcomponent-attributes-callback nombre-nodo="Nodo 10" mensajes-validos="Mensaje 1" respuestas="Respuesta 1">
-    </my-webcomponent-attributes-callback>
+    <carrito-component></carrito-component>
 </body>
 <script src="../AssetsLocal/js/bootstrap.bundle.min.js"></script>
 <?!= HtmlService.createHtmlOutputFromFile('Assets/js/bootstrap.bundle.min').getContent(); ?>
@@ -88,5 +54,19 @@
 <?!= HtmlService.createHtmlOutputFromFile('Assets/js/FuncionesComunes').getContent(); ?>
 <script src="../ComponentesLocal/Menu.js"></script>
 <?!= HtmlService.createHtmlOutputFromFile('Componentes/Menu').getContent(); ?>
+<script src="../ComponentesLocal/Carrito.js"></script>
+<?!= HtmlService.createHtmlOutputFromFile('Componentes/Carrito').getContent(); ?>
+
+<script>
+    function toggleCarrito() {
+        const carrito = document.querySelector('carrito-component');
+        const overlay = carrito?.querySelector('.carrito-overlay');
+        if (overlay?.classList.contains('carrito-overlay--visible')) {
+            carrito.cerrar();
+        } else {
+            carrito.abrir();
+        }
+    }
+</script>
 
 </html>

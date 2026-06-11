@@ -1,9 +1,7 @@
-<script type="text/javascript">
-    function ObtenerPagina(pagina) {
-        google.script.run
-            .withSuccessHandler(function (url) {
-                window.top.location.href = url + '?pag=' + pagina;
-            })
-            .getWebAppUrl();
-    }
+﻿<script>
+function ObtenerPagina(pagina) {
+    // Lógica local para obtener la página
+    window.location.href = window.location.origin + "/Paginas/" + pagina + ".html";
+}
+
 </script>
