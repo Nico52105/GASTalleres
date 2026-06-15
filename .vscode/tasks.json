@@ -4,12 +4,10 @@
         {
             "label": "Compilar: ComponentesLocal → Componentes",
             "type": "shell",
-            "command": "powershell",
+            "command": "cmd",
             "args": [
-                "-NoProfile",
-                "-ExecutionPolicy", "Bypass",
-                "-File",
-                "${workspaceFolder}\\.vscode\\compilar-componentes.ps1"
+                "/c",
+                "${workspaceFolder}\\.vscode\\compilar-componentes.bat"
             ],
             "group": {
                 "kind": "build",
@@ -26,12 +24,10 @@
         {
             "label": "Compilar: AssetsLocal → Assets",
             "type": "shell",
-            "command": "powershell",
+            "command": "cmd",
             "args": [
-                "-NoProfile",
-                "-ExecutionPolicy", "Bypass",
-                "-File",
-                "${workspaceFolder}\\.vscode\\compilar-assets.ps1"
+                "/c",
+                "${workspaceFolder}\\.vscode\\compilar-assets.bat"
             ],
             "group": "build",
             "presentation": {
