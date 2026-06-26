@@ -1,0 +1,78 @@
+<script> 
+// Nota: los atributos deben estar en minúsculas para que sean detectados por el navegador.
+(function () {
+    const etiquetaBannerComponent = 'banner-component';
+    if (customElements.get(etiquetaBannerComponent)) return;
+
+    class BannerComponent extends HTMLElement {
+
+        constructor() {
+            super();
+        }
+
+        getTemplate() {
+            const template = document.createElement('template');
+            let datos = [];
+            try {
+                datos = JSON.parse(this.textContent.trim() || '[]');
+            } catch (e) {
+                console.error('BannerComponent: error al parsear JSON', e);
+            }
+            const separador = '<span class="mx-3" aria-hidden="true">|</span>';
+            let mensajes = datos.length > 0 ?
+                datos.map(
+                    (mensaje) => `
+                    <span class="text-white">
+                        <a href="#" class="text-white text-decoration-none" onclick="ObtenerPagina('${mensaje.pagina}')">
+                            ${mensaje.titulo}
+                        </a>
+                    </span>`
+                ).join(separador) : '';
+
+            // Duplicar el contenido para lograr un loop continuo sin saltos
+            const pista = `<span class="banner-track-item">${mensajes}${separador}</span>`.repeat(20);
+
+            template.innerHTML = `
+                <style>
+                    @keyframes banner-scroll {
+                        from { transform: translateX(0); }
+                        to   { transform: translateX(-500%); }
+                    }
+                    .banner-track {
+                        display: flex;
+                        white-space: nowrap;
+                        animation: banner-scroll 120s linear infinite;
+                    }
+                    .banner-track:hover {
+                        animation-play-state: paused;
+                    }
+                    .banner-track-item {
+                        display: inline-flex;
+                        align-items: center;
+                        padding-right: 2rem;
+                    }
+                </style>
+                <div class="overflow-hidden p-1 bg-black text-white fs-6">
+                    <div class="banner-track">
+                        ${pista}
+                    </div>
+                </div>
+            `;
+            return template;
+        }
+
+        render() {
+            const template = this.getTemplate(); // lee textContent antes de limpiar
+            this.innerHTML = '';
+            this.appendChild(template.content.cloneNode(true));
+        }
+
+        connectedCallback() {
+            this.style.display = 'block';
+            this.render();
+        }
+
+    }
+
+    customElements.define(etiquetaBannerComponent, BannerComponent);
+})();</script>
