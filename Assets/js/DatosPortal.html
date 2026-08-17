@@ -1,0 +1,342 @@
+<script>
+    function ObtenerDatosBanner(banner) {
+        google.script.run
+            .withSuccessHandler(function (items) {
+                banner.textContent = JSON.stringify(items);
+                banner.setDatos(items);
+            })
+            .withFailureHandler(console.error)
+            .ObtenerDatosBannerGS();
+    }
+
+    function ObtenerDatosCategoria(fichas) {
+        google.script.run
+            .withSuccessHandler(function (items) {
+                fichas.textContent = JSON.stringify(items);
+                fichas.setDatos(items);
+            })
+            .withFailureHandler(console.error)
+            .ObtenerDatosCategoriaGS();
+    }
+
+    function ObtenerDatosFiltro(filtro) {
+        google.script.run
+            .withSuccessHandler(function (items) {
+                filtro.textContent = JSON.stringify(items);
+                filtro.setDatos(items);
+            })
+            .withFailureHandler(console.error)
+            .ObtenerDatosFiltroGS();
+    }
+
+    function ObtenerDatosProductos(productos) {
+        let items = [
+            {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            }, {
+                "codigo": "CHV-FR-001",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "imagen": "https://...",     // opcional
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+            {
+                "codigo": "CHV-FR-002",
+                "nombre": "Pastillas de Freno",
+                "repuesto": "Kit Pastillas Delanteras Aveo",
+                "tipo": "Original",        // "Original" o "Alternativo"
+                "precio": 85000,
+                "pagina": "DetalleProducto"  // para ObtenerPagina()
+            },
+        ];
+        productos.setDatos(items);
+    }
+</script>

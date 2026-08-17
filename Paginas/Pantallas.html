@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Bootsrap</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../AssetsLocal/css/bootstrap.min.css">
+    <?!= HtmlService.createHtmlOutputFromFile('Assets/css/bootstrap.min').getContent(); ?>
+    <link rel="stylesheet" href="../AssetsLocal/css/ReglasGenerales.css">
+    <?!= HtmlService.createHtmlOutputFromFile('Assets/css/ReglasGenerales').getContent(); ?>
+    <style>
+        .filtro-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        @media (min-width: 768px) {
+            .filtro-sticky {
+                height: 100vh;
+                max-height: 100vh;
+                overflow-y: auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-body-tertiary p-0 m-0">
+    <h1>Pantallas</h1>
+    <div class="container-sm">100% wide until small breakpoint</div>
+    <div class="container-md">100% wide until medium breakpoint</div>
+    <div class="container-lg">100% wide until large breakpoint</div>
+    <div class="container-xl">100% wide until extra large breakpoint</div>
+    <div class="container-xxl">100% wide until extra extra large breakpoint</div>
+</body>
+
+</html>

@@ -14,7 +14,7 @@
             const template = document.createElement('template');
             let datos = [];
             try {
-                datos = JSON.parse(this.textContent.trim() || '[]');
+                datos = this._datos ?? JSON.parse(this.textContent.trim() || '[]');
             } catch (e) {
                 console.error('BannerComponent: error al parsear JSON', e);
             }
@@ -30,7 +30,7 @@
                 ).join(separador) : '';
 
             // Duplicar el contenido para lograr un loop continuo sin saltos
-            const pista = `<span class="banner-track-item">${mensajes}${separador}</span>`.repeat(20);
+            const pista =`<span class="banner-track-item">${mensajes}${separador}</span>`.repeat(20);
 
             template.innerHTML = `
                 <style>
@@ -58,13 +58,18 @@
                     </div>
                 </div>
             `;
-            return template;
+            return mensajes.length > 0 ? template : null;
         }
 
         render() {
             const template = this.getTemplate(); // lee textContent antes de limpiar
             this.innerHTML = '';
             this.appendChild(template.content.cloneNode(true));
+        }
+
+        setDatos(datos) {
+            this._datos = datos;
+            this.render();
         }
 
         connectedCallback() {

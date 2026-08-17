@@ -1,0 +1,75 @@
+<script> 
+// Nota: los atributos deben estar en minúsculas para que sean detectados por el navegador.
+(function () {
+    const etiquetaFichasComponent = 'fichas-component';
+    if (customElements.get(etiquetaFichasComponent)) return;
+
+    class FichasComponent extends HTMLElement {
+
+        constructor() {
+            super();
+        }
+
+        getTemplate() {
+            const template = document.createElement('template');
+            let datos = [];
+            try {
+                datos = this._datos ?? JSON.parse(this.textContent.trim() || '[]');
+            } catch (e) {
+                console.error('FichasComponent: error al parsear JSON', e);
+            }
+            
+            const tarjetas = datos.map((ficha) => `
+                <div class="col-4 col-md-3 col-lg-2 p-1">
+                    <div class="card h-100 text-center shadow-sm border-0 fichas-card" role="button"
+                         onclick="ObtenerPagina('${ficha.Pagina}')">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center gap-1 p-1">
+                            <span class="fichas-emoji">${ficha.Emoji}</span>
+                            <span class="fw-semibold small">${ficha.Nombre}</span>
+                        </div>
+                    </div>
+                </div>`
+            ).join('');
+
+            template.innerHTML = `
+                <style>
+                    .fichas-card {
+                        cursor: pointer;
+                        transition: transform 0.15s, box-shadow 0.15s;
+                    }
+                    .fichas-card:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+                    }
+                    .fichas-emoji {
+                        font-size: 1rem;
+                        line-height: 1;
+                    }
+                </style>
+                <div class="d-flex flex-wrap justify-content-start col-12">
+                    ${tarjetas}
+                </div>
+            `;
+            return datos.length > 0 ? template : null;
+        }
+
+        render() {
+            const template = this.getTemplate(); // lee textContent antes de limpiar
+            this.innerHTML = '';
+            this.appendChild(template.content.cloneNode(true));
+        }
+
+        setDatos(datos) {
+            this._datos = datos;
+            this.render();
+        }
+
+        connectedCallback() {
+            this.style.display = 'block';
+            this.render();
+        }
+
+    }
+
+    customElements.define(etiquetaFichasComponent, FichasComponent);
+})();</script>
