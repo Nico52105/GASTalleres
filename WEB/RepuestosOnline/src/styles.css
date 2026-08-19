@@ -1,6 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
 html,
 body {
-	margin: 0;
-	min-height: 100%;
+    margin: 0;
+    height: 100%;
+}
+
+.contenido {
+    height: calc(100% - 68px);
+    overflow: auto;
+}
+
+.dummy-base {
+    display: block;
+    background-image: url("app/Assets/img/dummy/home.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+
+    &.dummy-menu {
+        background-position: top;
+        height: 68px;
+    }
+
+    &.dummy-footer {
+        background-position: top;
+        height: 190px;
+        background-position-y: -1528px;
+    }
+
+    &.dummy-banner {
+        background-position: top;
+        height: 533px;
+        background-position-y: -68px;
+    }
+
+    &.dummy-propuesta-valor {
+        background-position: top;
+        height: 81px;
+        background-position-y: -602px;
+    }
+
+    &.dummy-categoria {
+        background-position: top;
+        height: 844px;
+        background-position-y: -683px;
+    }
 }
