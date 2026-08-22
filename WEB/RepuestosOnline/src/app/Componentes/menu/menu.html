@@ -1,1 +1,9 @@
-<div class="dummy-base dummy-menu"></div>
+<div class="dummy-base dummy-menu">
+    <div class="d-flex">
+        <b style="color:blue" class="m-2"><ng-content select="[titulo]"></ng-content></b>
+        <b><ng-content select="[opciones]"></ng-content></b>
+        <b><ng-content select="[buscador]"></ng-content></b>
+        <b><ng-content select="[carrito-compras]"></ng-content></b>
+        <b><ng-content select="[usuario]"></ng-content></b>
+    </div>
+</div>
