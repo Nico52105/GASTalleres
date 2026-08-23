@@ -41,7 +41,7 @@ body {
 }
 
 .contenido {
-    height: calc(100% - 72px);
+    height: calc(100% - 68px);
     overflow: auto;
 }
 
