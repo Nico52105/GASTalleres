@@ -1,33 +1,13 @@
 {
     "version": "2.0.0",
-    "tasks": [
+    "tasks": [        
         {
-            "label": "Compilar: ComponentesLocal → Componentes",
+            "label": "Compilar y publicar: WEB → docs",
             "type": "shell",
             "command": "cmd",
             "args": [
                 "/c",
-                "${workspaceFolder}\\.vscode\\compilar-componentes.bat"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "panel": "shared",
-                "clear": true
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Compilar: AssetsLocal → Assets",
-            "type": "shell",
-            "command": "cmd",
-            "args": [
-                "/c",
-                "${workspaceFolder}\\.vscode\\compilar-assets.bat"
+                "${workspaceFolder}\\.vscode\\publicar-docs.bat"
             ],
             "group": "build",
             "presentation": {
@@ -36,16 +16,6 @@
                 "panel": "shared",
                 "clear": true
             },
-            "problemMatcher": []
-        },
-        {
-            "label": "Compilar: Todo",
-            "dependsOn": [
-                "Compilar: ComponentesLocal → Componentes",
-                "Compilar: AssetsLocal → Assets"
-            ],
-            "dependsOrder": "parallel",
-            "group": "build",
             "problemMatcher": []
         }
     ]
