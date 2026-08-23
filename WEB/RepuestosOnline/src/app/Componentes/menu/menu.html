@@ -39,7 +39,8 @@
     <div class="d-flex flex-column">
         <div class="d-flex justify-content-around align-items-center px-2 pt-2">
             <div>
-                <a class="resaltar-circulo mx-3 p-2 d-flex align-items-center justify-content-center">
+                <a class="resaltar-circulo mx-3 p-2 d-flex align-items-center justify-content-center"
+                    data-bs-toggle="modal" data-bs-target="#modalMenu">
                     <i class="bi bi-list fs-4 color col-a04100"></i>
                 </a>
             </div>
@@ -47,7 +48,7 @@
                 <a class="resaltar-circulo mx-3 p-2 d-flex align-items-center justify-content-center">
                     <i class="bi bi-search fs-4 color col-a04100"></i>
                 </a>
-            </div>            
+            </div>
             <div>
                 <a class="resaltar-circulo mx-3 p-2 d-flex align-items-center justify-content-center">
                     <i class="bi bi-cart3 fs-4 color col-a04100"></i>
@@ -58,9 +59,27 @@
                     <i class="bi bi-person fs-4 color col-a04100"></i>
                 </a>
             </div>
-        </div>        
+        </div>
         <div class="text-center fw-bold color col-a04100">
             {{ Parametros.Titulo }}
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalMenu" tabindex="-1" aria-labelledby="modalMenuLabel" aria-hidden="true">
+    <div class="modal-menu modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <nav>
+                <ul class="opciones-lista">
+                    @for (opcion of Parametros.Opciones; track opcion.Destino) {
+                    <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <a class="d-block px-4 py-3 fs-6" [routerLink]="['/', opcion.Destino]" data-bs-dismiss="modal" ariaCurrentWhenActive="page">{{
+                            opcion.Descripcion }}</a>
+                    </li>
+                    }
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
