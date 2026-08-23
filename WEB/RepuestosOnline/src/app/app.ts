@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Menu } from './Componentes/menu/menu';
+import { Menu, ParametrosMenu } from './Componentes/menu/menu';
 import { Footer } from './Componentes/footer/footer';
 
 @Component({
@@ -11,4 +11,16 @@ import { Footer } from './Componentes/footer/footer';
 })
 export class App {
   protected readonly title = signal('RepuestosOnline');
+  protected readonly parametrosMenu: ParametrosMenu = {
+    Titulo: 'MotorParts',
+    Opciones: [
+      { Descripcion: 'Shop Parts', Destino: 'Shop' },
+      { Descripcion: 'Brands', Destino: 'Brands' },
+      { Descripcion: 'Deals', Destino: 'Deals' },
+      { Descripcion: 'My Garage', Destino: 'My-Garage' },
+    ],
+    Buscar: () => {},
+    Comprar: () => {},
+    Usuario: 'Usuario',
+  };
 }

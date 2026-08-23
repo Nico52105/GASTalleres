@@ -3,10 +3,45 @@ html,
 body {
     margin: 0;
     height: 100%;
+    font-family: inter,jetbrains-mono;
+}
+
+.color {
+    &.col-1a1c1c { color: #1a1c1c; }
+    &.col-1b1c1c { color: #1b1c1c; }
+    &.col-2f3131 { color: #2f3131; }
+    &.col-313131 { color: #313131; }
+    &.col-474747 { color: #474747; }
+    &.col-572000 { color: #572000; }
+    &.col-5a4136 { color: #5a4136; }
+    &.col-5f5e5e { color: #5f5e5e; }
+    &.col-636262 { color: #636262; }
+    &.col-7a3000 { color: #7a3000; }
+    &.col-8e7164 { color: #8e7164; }
+    &.col-93000a { color: #93000a; }
+    &.col-9a9999 { color: #9a9999; }
+    &.col-a04100 { color: #a04100; }
+    &.col-ba1a1a { color: #ba1a1a; }
+    &.col-c8c6c5 { color: #c8c6c5; }
+    &.col-c8c6c6 { color: #c8c6c6; }
+    &.col-dadada { color: #dadada; }
+    &.col-e2bfb0 { color: #e2bfb0; }
+    &.col-e2dfde { color: #e2dfde; }
+    &.col-e2e2e2 { color: #e2e2e2; }
+    &.col-e4e2e1 { color: #e4e2e1; }
+    &.col-e5e2e1 { color: #e5e2e1; }
+    &.col-e8e8e8 { color: #e8e8e8; }
+    &.col-eeeeee { color: #eeeeee; }
+    &.col-f1f1f1 { color: #f1f1f1; }
+    &.col-ff6b00 { color: #ff6b00; }
+    &.col-ffb693 { color: #ffb693; }
+    &.col-ffdad6 { color: #ffdad6; }
+    &.col-ffdbcc { color: #ffdbcc; }
+    &.col-ffffff { color: #ffffff; }
 }
 
 .contenido {
-    height: calc(100% - 68px);
+    height: calc(100% - 72px);
     overflow: auto;
 }
 

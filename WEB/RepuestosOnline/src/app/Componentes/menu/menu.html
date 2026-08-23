@@ -1,9 +1,34 @@
-<div class="dummy-base dummy-menu">
-    <div class="d-flex">
-        <b style="color:blue" class="m-2"><ng-content select="[titulo]"></ng-content></b>
-        <b><ng-content select="[opciones]"></ng-content></b>
-        <b><ng-content select="[buscador]"></ng-content></b>
-        <b><ng-content select="[carrito-compras]"></ng-content></b>
-        <b><ng-content select="[usuario]"></ng-content></b>
+<div class="menu">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center px-4 py-3 fs-4 fw-bold color col-a04100">
+            {{ Parametros.Titulo }}
+        </div>
+        <div>
+            <nav>
+            <ul class="opciones-lista">
+                @for (opcion of Parametros.Opciones; track opcion.Destino) {
+                    <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <a class="d-block px-4 py-3 fs-6" [routerLink]="['/', opcion.Destino]" ariaCurrentWhenActive="page">{{ opcion.Descripcion }}</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+        </div>
+        <div class="d-flex align-items-center px-4 py-3">
+            <div class="buscador position-relative me-4">
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Busca tú repuesto, #SKU...">
+                <i class="bi bi-search pe-2 color col-9a9999 position-absolute top-50 end-0 translate-middle-y"></i>
+            </div>
+            <div>
+                <a class="resaltar-circulo mx-3 p-2 d-flex align-items-center justify-content-center">
+                    <i class="bi bi-cart3 fs-4 color col-a04100"></i>
+                </a>
+            </div>
+            <div>
+                <a class="resaltar-circulo mx-3 p-2 d-flex align-items-center justify-content-center">
+                    <i class="bi bi-person fs-4 color col-a04100"></i>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
