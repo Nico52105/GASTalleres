@@ -3,8 +3,8 @@ import { Home } from './Paginas/home/home';
 import { Menu } from './Componentes/menu/menu';
 
 export const routes: Routes = [
-    {path: '', redirectTo: 'home', pathMatch: 'full'},    
-    {path: 'home', component: Home},
+    {path: '', redirectTo: 'Home', pathMatch: 'full'},
+    {path: 'Home', component: Home},
     {path: 'Shop', component: Home},
     {path: 'Brands', component: Home},
     {path: 'Deals', component: Home},

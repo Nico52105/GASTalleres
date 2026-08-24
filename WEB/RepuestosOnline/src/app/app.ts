@@ -14,7 +14,7 @@ export class App {
   protected readonly parametrosMenu: ParametrosMenu = {
     Titulo: 'MotorParts',
     Opciones: [
-      { Descripcion: 'Shop Parts', Destino: 'Shop' },
+      { Descripcion: 'Inicio', Destino: 'Home' },
       { Descripcion: 'Brands', Destino: 'Brands' },
       { Descripcion: 'Deals', Destino: 'Deals' },
       { Descripcion: 'My Garage', Destino: 'My-Garage' },
