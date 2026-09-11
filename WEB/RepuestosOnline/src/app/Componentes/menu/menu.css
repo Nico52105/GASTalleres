@@ -2,6 +2,7 @@
     >div {
         height: 68px;
         overflow: hidden;
+        width: 100%;
     }
 
     .opciones-lista {
